@@ -86,14 +86,3 @@ CREATE TABLE file(
     type VARCHAR,
     version INT
 );
-
-
-
-
-CREATE TABLE mutasi(
-    id VARCHAR(255) PRIMARY key,
-    no_rekening varchar references nasabah on update cascade on delete cascade,
-    waktu VARCHAR(255),
-    kode_transaksi VARCHAR(255),
-    nominal VARCHAR(255)
-);
