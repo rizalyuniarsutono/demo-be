@@ -36,13 +36,13 @@ const alumniDiklatController = {
                         // Jika findAnd berhasil
                         duplicateEntries.push({
                             data: rowsAnd[0],
-                            message: 'pernah ikut pelatihan dan sedang mengikuti pelatihan'
+                            message: `pernah ikut pelatihan dan sedang mengikuti ${rowsAnd[0].nama_diklat}`
                         });
                     } else {
                         // Jika findAnd gagal
                         duplicateEntries.push({
                             data: rowsIdDiklatNip[0],
-                            message: 'sudah pernah ikut pelatihan'
+                            message: `sudah pernah ikut ${rowsIdDiklatNip[0].nama_diklat}`
                         });
                     }
                 } else {
@@ -53,7 +53,7 @@ const alumniDiklatController = {
                         // Jika findOr berhasil
                         duplicateEntries.push({
                             data: rowsOr[0],
-                            message: 'sedang mengikuti pelatihan'
+                            message: `sedang mengikuti ${rowsOr[0].nama_diklat}`
                         });
                     } else {
                         // Jika findOr gagal
@@ -63,7 +63,7 @@ const alumniDiklatController = {
                                 nama_peserta: nama_peserta,
                                 nip: nip
                             },
-                            message: 'dapat dipanggil ikut pelatihan'
+                            message: `dapat dipanggil ikut ${row.nama_diklat}`
                         });
                     }
                 }
