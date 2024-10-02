@@ -1,5 +1,7 @@
 const jwt = require('jsonwebtoken')
 const createError = require('http-errors')
+const commonHelper = require("../helper/common")
+
 const protect =(req,res,next)=>{
   try{
     let token
@@ -24,5 +26,18 @@ const protect =(req,res,next)=>{
     }
   }
 }
+const isAdmin = (req, res, next) => {
+  const payload = req.payload;
+  if (payload) {
+    if (payload.role === "admin") {
+      next();
+    } else {
+      commonHelper.response(res, null, 403,
+        "Unauthorized, please login as admin");
+    }
+  } else {
+    commonHelper.response(res, null, 403, "User not found");
+  }
+};
 
-module.exports = {protect}
+module.exports = {protect, isAdmin}

@@ -68,6 +68,27 @@ CREATE TABLE aspirasi_pengaduan(
     tindak_lanjut VARCHAR
 );
 
+CREATE TABLE usulan_peserta(
+    id VARCHAR(255) PRIMARY key,
+    pengusul VARCHAR NOT NULL,
+    name VARCHAR,
+    hp_no VARCHAR,
+    tanggal VARCHAR,
+    surat_usulan VARCHAR,
+    usulan VARCHAR
+);
+
+CREATE TABLE file(
+    id VARCHAR(255) PRIMARY key,
+    filename VARCHAR NOT NULL,
+    basepath VARCHAR,
+    mimetype VARCHAR,
+    type VARCHAR,
+    version INT
+);
+
+
+
 
 CREATE TABLE mutasi(
     id VARCHAR(255) PRIMARY key,
